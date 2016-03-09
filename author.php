@@ -1,7 +1,8 @@
-<?php get_header(); ?>
+	<?php get_header(); ?>
 
 	<div id="content">
 		<div class="wrapper">
+			<h1><?php echo get_the_author(); ?></h1>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<div class="post">
 				<div class="date"><?php the_time('j M'); ?></div>
@@ -15,16 +16,18 @@
 					</li>
 				</ul>
 
-				<div class="post_content clearfix">
-					<h1><?php the_title(); ?></h1>
-					<?php the_content(); ?>
+				<div class="post_content">
+					<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+					<p><?php the_excerpt(); ?></p>
+					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Read More</a>
 				</div>
-				<p class="tags_block"><?php the_tags('tags ',' , '); ?><p>
-					<!-- <p><?php the_author_posts_link(); ?></p> -->
+
 			</div>
-				<?php comments_template(); ?>
-			<?php endwhile; endif; ?>
+			<?php endwhile; else: ?>
+			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+			<?php endif; ?>
 		</div>
 	</div>
+
 	<?php get_footer(); ?>
 	<?php wp_footer(); ?>
