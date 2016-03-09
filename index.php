@@ -25,23 +25,13 @@
 					</li>
 				</ul>
 
-			<?php if ( is_single() ) : ?>
-				<div class="post_content clearfix">
-					<h1><?php the_title(); ?></h1>
-					<?php the_content(); ?>
-				</div>
-				<p class="tags_block"><?php the_tags('tags ',' , '); ?><p>
-
-			<?php else : ?>
-
 				<div class="post_content">
 					<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 					<p><?php the_excerpt(); ?></p>
 					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Read More</a>
 				</div>
-			<?php endif; // is_single() ?>
+
 			</div>
-				<?php comments_template(); ?>
 			<?php endwhile; else: ?>
 			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 			<?php endif; ?>
