@@ -1,4 +1,4 @@
-<div class="comments_block">
+<div class="comments_block" data-post-id='{"id":<?php echo get_the_ID(); ?>}'>
 
 		<h2 class="comments_title">
 			<?php
@@ -31,15 +31,8 @@
 
 	<?php if ( have_comments() ) : ?>
 		<ol class="comment_list">
-			<?php
-				wp_list_comments( array(
-					'style'       => 'ol',
-					'short_ping'  => true,
-					'avatar_size' => 56,
-				) );
-			?>
-		</ol>
 
+		</ol>
 	<?php endif; // have_comments() ?>
 
 

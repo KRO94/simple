@@ -1,5 +1,4 @@
-
-	<?php get_header(); ?>
+<?php get_header(); ?>
 
 	<div id="content">
 		<div class="wrapper">
@@ -27,8 +26,11 @@
 			<?php endwhile; else: ?>
 			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 			<?php endif; ?>
+
+			<div class="pagination"><?php echo paginate_links( $args ) ?></div>
+			
 		</div>
 	</div>
 	
-	<?php get_footer(); ?>
-	<?php wp_footer(); ?>
+<?php get_footer(); ?>
+

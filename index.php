@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Simple blog</title>
-</head>
-<?php wp_head(); ?>
-<body>
-	<?php get_header(); ?>
+<?php get_header(); ?>
 
 	<div id="content">
 		<div class="wrapper">
@@ -35,21 +26,10 @@
 			<?php endwhile; else: ?>
 			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 			<?php endif; ?>
+
+			<div class="pagination"><?php echo paginate_links( $args ) ?></div>
+	
 		</div>
 	</div>
-
-
-
-
-<!-- 			<div class="pagination">
-				<ul>
-					<li><a href="#" class="active">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">Next</a></li>
-				</ul>
-			</div> -->
 	
 	<?php get_footer(); ?>
-	<?php wp_footer(); ?>
-</body>
-</html>

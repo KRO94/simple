@@ -1,4 +1,4 @@
-	<?php get_header(); ?>
+<?php get_header(); ?>
 
 	<div id="content">
 		<div class="wrapper">
@@ -13,5 +13,4 @@
 		</div>
 	</div>
 	
-	<?php get_footer(); ?>
-	<?php wp_footer(); ?>
+<?php get_footer(); ?>

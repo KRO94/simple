@@ -14,6 +14,7 @@
 <body <?php body_class(); ?>>
 
 	<div class="header_bg"></div>
+	<?php if(!is_404()) :?>
 	<div class="menu_h clearfix">
 		<div class="wrapper">
 			<?php wp_nav_menu( array('theme_location' => 'header_menu_left',
@@ -25,3 +26,4 @@
 			 )); ?>
 		</div>
 	</div>
+	<?php endif; ?>
