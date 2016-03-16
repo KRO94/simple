@@ -20,7 +20,7 @@
 			<?php wp_nav_menu( array('theme_location' => 'header_menu_left',
 					'menu_class'      => 'menu left_menu'
 			 )); ?>
-			<a href="http://simple.blog/" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/pic/logo1.png" alt=""></a>
+			<a href="<?php echo esc_url(home_url()); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/pic/logo1.png" alt=""></a>
 			<?php wp_nav_menu( array('theme_location' => 'header_menu_right',
 					'menu_class'      => 'menu right_menu'
 			 )); ?>

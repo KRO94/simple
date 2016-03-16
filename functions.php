@@ -11,16 +11,45 @@ add_action( 'wp_enqueue_scripts', 'simple_blog_scripts' );
 add_theme_support( 'menus' );
 
 function simple_get_comments() {
+	$per_page = 2;
+
+	if(isset($_POST['single']) && $_POST['single'] == true) $per_page = 1;
+
 	$comments = get_comments(array(
 		'post_id' => $_POST['id'],
-		'status' => 'approve',
-		'orderby' => 'comment_ID',
-		'order' => 'DESC'
+		'status' => 'approve'
 	));
-	wp_list_comments( array('page' => $_POST['count']), $comments );
+	wp_list_comments( array('per_page' => $per_page, 'page' => $_POST['count']), $comments );
 	// print_r( $comments );
 	wp_die();
 }
 add_action('wp_ajax_comments', 'simple_get_comments');
 add_action('wp_ajax_nopriv_comments', 'simple_get_comments');
+
+function simple_post_comment() {
+	$comment = $_POST['comment'];
+	$post_id = $_POST['comment_post_ID'];
+
+	if (is_user_logged_in()) {
+		$args = array(
+			'comment_post_ID' => $post_id,
+			'user_id' => get_current_user_id(),
+			'comment_content' => $comment
+		);
+	} else {
+		$name = $_POST['author'];
+		$email = $_POST['email'];
+		$args = array(
+			'comment_post_ID' => $post_id,
+			'comment_author' => $name,
+			'comment_author_email' => $email,
+			'comment_content' => $comment);
+	}
+
+	echo wp_insert_comment($args);
+
+	wp_die();
+}
+add_action('wp_ajax_post_comment', 'simple_post_comment');
+add_action('wp_ajax_nopriv_post_comment', 'simple_post_comment');
 ?>
