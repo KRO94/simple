@@ -25,17 +25,31 @@
 		);
 		
 	?>
+	
+	<?php 
+		add_filter('comment_form_fields', 'wp_reorder_comment_fields' );
+		function wp_reorder_comment_fields( $fields ){
+			$new_fields = array();
+			$myorder = array('author','email','url','comment');
 
+			foreach( $myorder as $key ){
+				$new_fields[ $key ] = $fields[ $key ];
+				unset( $fields[ $key ] );
+			}
+
+			if( $fields )
+				foreach( $fields as $key => $val )
+				$new_fields[ $key ] = $val;
+
+		return $new_fields;
+		}
+	?>
 	<?php comment_form( $arg); ?>
 
 
 	<?php if ( have_comments() ) : ?>
 		<ol class="comment_list">
 
-		</ol>
-		<?php else: ?>
-		<ol class="comment_list">
-			No comments yet
 		</ol>
 	<?php endif; // have_comments() ?>
 
