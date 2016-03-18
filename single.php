@@ -21,7 +21,7 @@
 				</div>
 
 				<p class="tags_block"><?php the_tags('tags ',' , '); ?><p>
-					<p><?php the_author_posts_link(); ?></p>
+					<!-- <p><?php the_author_posts_link(); ?></p> -->
 			</div>
 			<?php comments_template(); ?>
 

@@ -51,6 +51,8 @@
 		<ol class="comment_list">
 
 		</ol>
+	<?php else: ?>
+		<ol class="comment_list">No comments yet</ol>
 	<?php endif; // have_comments() ?>
 
 
