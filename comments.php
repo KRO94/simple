@@ -25,7 +25,7 @@
 		);
 		
 	?>
-	
+
 	<?php 
 		add_filter('comment_form_fields', 'wp_reorder_comment_fields' );
 		function wp_reorder_comment_fields( $fields ){

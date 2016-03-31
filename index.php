@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+	<?php get_header(); ?>
 
 	<div id="content">
 		<div class="wrapper">
@@ -16,7 +16,7 @@
 					</li>
 				</ul>
 
-				<div class="post_content">
+			<div class="post_content">
 					<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 					<p><?php the_excerpt(); ?></p>
 					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">Read More</a>

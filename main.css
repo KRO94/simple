@@ -166,6 +166,9 @@ html {
 	border-right: 1px solid #ebebeb;
 	float: left;
 	color: #b7b7b7;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 #content .info_post li:last-child {
 	border: none;
@@ -310,9 +313,7 @@ footer span{
 	.post_content {
 		width: 95%;
 	}
-/*	.likes span, .comments  span {
-		display: none;
-	}*/
+	
 	.info_post .category {
 		width: 40%;
 	}
